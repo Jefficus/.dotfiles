@@ -1,0 +1,13 @@
+#robbyrussell/oh-my-zsh path:plugins/git
+robbyrussell/oh-my-zsh path:plugins/git
+robbyrussell/oh-my-zsh path:plugins/pip
+robbyrussell/oh-my-zsh path:plugins/sudo
+robbyrussell/oh-my-zsh path:plugins/command-not-found
+
+# This is pretty but it slows down ALL sh cmds
+#denysdovhan/spaceship-prompt
+geometry-zsh/geometry
+
+# After changing this file run this cmd:
+#        antibody bundle < ~/.dotfiles/plugins_zsh > ~/.zsh_plugins.sh
+# Which I have now aliased to "antibodify"

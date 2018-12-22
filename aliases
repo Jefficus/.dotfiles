@@ -1,0 +1,55 @@
+alias antibodify='antibody bundle < ~/.dotfiles/plugins_zsh > ~/.zsh_plugins.sh'
+alias bigdirs='du --max-depth=1|sort -nr|less'
+alias bigfiles='du *|sort -nr|less'
+alias blackburt='You are ON blackburt, dummy!'
+alias bugs='jink -c +s bug=open -l'
+
+alias ch='ssh -X a3613142427293@creativityhacker.ca'
+
+alias daycount='production-charts -Rl '
+
+alias ebo='ebook-viewer'
+alias eog='feh'
+
+alias frank='ssh -X 192.168.1.15'
+
+alias godaddy='ssh a3613142427293@a36.160.myftpupload.com'
+alias gpx='/usr/bin/gpx -g -m r2 -v '
+
+alias hogs='du -sk *|sort -nr |less'
+
+alias ispell='echo "Please use one of ispellbrit, ispellcan or ispellus"'
+alias ispellbrit='/usr/bin/ispell -d british -p ~/.ispell_british'
+alias ispellcan='/usr/bin/ispell -d canadian -p ~/.ispell_canadian'
+alias ispellus='/usr/bin/ispell -d american -p ~/.ispell_american'
+
+alias jtidy='astyle'
+alias jindent='astyle'
+
+alias ls='LC_COLLATE=C ls -hCF --color=never --group-directories-first'
+alias ll='LC_COLLATE=C ls -hl'
+alias la='LC_COLLATE=C ls -ha'
+
+alias man='man -M $MANPATH '
+alias midiserver='timidity -iA -A 500 2>&1 /dev/null'
+
+alias OKcheck='gvim -R /home/jeffs/MIGRATED/Development/Writing/Active/OathKeeper.scriv/Production/IN-chapters.jd'
+
+#alias rm='~/bin/rm'
+alias rm="mv -t ~/.local/share/Trash/files --backup=t --verbose"
+
+alias slic3r='/opt/slic3r/bin/slic3r'
+alias slicer='/opt/slic3r/bin/slic3r'
+alias SPcheck='gvim -R /home/jeffs/MIGRATED/Development/Writing/Active/StrangePlaces.scriv/Production/IN-chapters.jd'
+alias SPebook='ebook-viewer ~/Calibre\ Library/Jefferson\ Smith/Strange\ Places\ \(2\)/Strange\ Places\ -\ Jefferson\ Smith.epub'
+
+alias t="~/bin/todo.py"
+
+alias update='sudo apt-get update'
+alias urgent='splaticus list urgent'
+
+alias vbj='cd ~/VBJ; vi -O index.md `date -Idate`.md'
+
+
+
+
