@@ -1,7 +1,7 @@
 alias antibodify='antibody bundle < ~/.dotfiles/plugins_zsh > ~/.zsh_plugins.sh'
 alias bigdirs='du --max-depth=1|sort -nr|less'
 alias bigfiles='du *|sort -nr|less'
-alias blackburt='You are ON blackburt, dummy!'
+alias blackburt='ssh -X 192.168.1.121'
 alias bugs='jink -c +s bug=open -l'
 
 alias ch='ssh -X a3613142427293@creativityhacker.ca'
