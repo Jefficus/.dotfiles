@@ -16,7 +16,7 @@ export PATH=.:$HOME/bin:/usr/local/bin:$PATH
 
 # turn on prompt substitutions so that themes can 
 # create informative display prompts
-setopt PROMPT_SUBST
+#setopt PROMPT_SUBST
 
 
 # stamp shown in the history command output.
