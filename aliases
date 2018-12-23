@@ -30,7 +30,7 @@ alias ls='LC_COLLATE=C ls -hCF --color=never --group-directories-first'
 alias ll='LC_COLLATE=C ls -hl'
 alias la='LC_COLLATE=C ls -ha'
 
-alias man='man -M $MANPATH '
+#alias man='man -M $MANPATH '
 alias midiserver='timidity -iA -A 500 2>&1 /dev/null'
 
 alias OKcheck='gvim -R /home/jeffs/MIGRATED/Development/Writing/Active/OathKeeper.scriv/Production/IN-chapters.jd'
