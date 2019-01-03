@@ -1,7 +1,7 @@
 # Set up geometry prompt params beefore loading plugins
-PROMPT_GEOMETRY_COLORIZE_SYMBOL=true  #change icon color based on hostname
-PROMPT_GEOMETRY_EXEC_TIME=true        #show elapsed time for long shell cmds
-GEOMETRY_PROMPT_PLUGINS=(hostname path exec_time git) #declare which plugins used on right
+# PROMPT_GEOMETRY_COLORIZE_SYMBOL=true  #change icon color based on hostname
+# PROMPT_GEOMETRY_EXEC_TIME=true        #show elapsed time for long shell cmds
+# GEOMETRY_PROMPT_PLUGINS=(hostname path exec_time git) #declare which plugins used on right
 
 # plugins are managed in ~/.dotfiles/zsh-plugins
 source ~/.zsh_plugins.sh
@@ -9,6 +9,8 @@ source ~/.zsh_plugins.sh
 # aliases are managed in ~/.dotfiles/aliases
 source ~/.dotfiles/aliases
 
+# tell the system that we have a full color terminal 
+export TERM="xterm-256color"
 
 
 # If you come from bash you might have to change your $PATH.
@@ -64,3 +66,13 @@ autoload -U compinit && compinit -u
 
 # Complete go like git
 #compdef g=git
+
+# set control vars for powerlevel9k theme
+export DEFAULT_USER=jeffs
+export POWERLEVEL9K_MODE='awesome-fontconfig'
+# DO NOT ENABLE VCS IN POWER9K ON BLACKBURT!
+# That module is extremely slow and locks up ALL your terminals
+export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir)
+export POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history command_execution_time)
+export POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_last
+source ~/.shell_themes/powerlevel9k/powerlevel9k.zsh-theme

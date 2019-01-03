@@ -29,6 +29,9 @@ set visualbell
 " Encoding
 set encoding=utf-8
 
+" Add my version of vim-markdown-wiki to the runtime path
+"set runtimepath^=~/.vim/bundle/vim-jeffdown.vim
+
 " Whitespace
 set textwidth=79
 set tabstop=4
@@ -41,8 +44,10 @@ set shiftround
 
 " Colorscheme
 colorscheme slate "so far, I actually like the default best
-"I prefer a more subtle highlighting scheme
-highlight Search guibg='NONE' guifg='Yellow' cterm=NONE ctermfg=yellow ctermbg=NONE
+"Override syntax colors for some things that bug me
+highlight Search guibg='NONE' guifg='White' cterm=NONE ctermfg=White ctermbg=NONE
+highlight VimwikiComment guibg='NONE' guifg='Brown' cterm=NONE ctermfg=Brown ctermbg=NONE
+highlight VimwikiItalic guibg='NONE' guifg='White' cterm=NONE ctermfg=White ctermbg=NONE
 
 " Cursor motion
 set scrolloff=3 "keep 3 lines of text visible above/below current line
@@ -67,8 +72,8 @@ set laststatus=2
 set showmode
 set showcmd
 "
-" Force the .md files to be treated as vimwiki type
-" autocmd BufNewFile, BufReadPost *.md set filetype=c 
+" Force the jmd files to be treated as vimwiki type
+"autocmd BufNewFile, BufReadPost *.jd set filetype=vimwiki 
 
 " Searching
 "nnoremap / /\v "No idea what this \v does
@@ -113,39 +118,40 @@ call plug#begin('~/.vim/plugged')
 " the tool to control local page links
 " but probably overkill. Might just want
 " to find a hyperlink jumper without all the other wiki stuff
-"Plug 'vimwiki/vimwiki'
+Plug 'vimwiki/vimwiki'
 
 " Load a plugin to handle highlighting for Markdown content
-"Plug 'gabrielelana/vim-markdown'
-"Plug 'plasticboy/vim-markdown'
-"Plug 'tpope/vim-markdown' " a better markdown handler?
+Plug 'tpope/vim-markdown' " a better markdown handler?
 
 " These might implement a more limited wiki link feature as 
 " a vim Minor Mode. But I haven't got it working yet.
-Plug 'tomtom/tlib_vim'
-Plug 'tomtom/viki_vim'
+"Plug 'tomtom/tlib_vim'
+"Plug 'tomtom/viki_vim'
 
 " Highly useful noun and verb extensions for vim
 Plug 'tpope/vim-surround'  "adds cs=chg surround, ys=add surround, ds=del
-Plug 'tpope/vim-commentary' "adds cm for commentify - add cmnt symbols to target
+Plug 'tpope/vim-commentary' "cm for commentify - add cmnt symbols to target
 Plug 'tpope/vim-repeat' "allow other plugins to become repeatable with . cmd
-Plug 'vim-scripts/ReplaceWithRegister' "gr go replace targ with buffer content 
+Plug 'vim-scripts/ReplaceWithRegister' "gr replace targ with buffer content 
 Plug 'christoomey/vim-titlecase' "gt go title case, 
-Plug 'christoomey/vim-system-copy' "cp to copy targ to sys clipbd, cv to paste from 
+Plug 'christoomey/vim-system-copy' "cp targ to sys clipbd, cv pastes from 
 Plug 'christoomey/vim-tmux-navigator' "mk tmux treat vim splits as panes
 Plug 'michaeljsmith/vim-indent-object' "allow targeting block of indented lines
 Plug 'kana/vim-textobj-user' "dependency for the plugins that follow? 
 Plug 'kana/vim-textobj-entire' "allow targeting entire file
 Plug 'kana/vim-textobj-line' "allow targeting entire full line
+Plug 'jeetsukumaran/vim-pythonsense' "allow targeting of Python blocks
 Plug 'reedes/vim-textobj-sentence' "allow targeting English sentence
 Plug 'reedes/vim-pencil' "handling soft wrap, markup displays, etc.
 Plug 'reedes/vim-colors-pencil' "handle nice colors for markdown elements
 Plug 'vim-airline/vim-airline' "a sexy status line for vim sessions
-
+Plug 'lervag/vimtex' "a syntax and motions plugin for latex files
+Plug 'azadkuh/vim-cmus' "control cmus music player from inside vim
 Plug 'felixhummel/setcolors.vim' "a tool for previewing vim color schemes
 
 
 call plug#end()
+
 
 """""""""""""""""""""""""""""""""""""""""""""""
 " Overrides and extensions for included plugins
@@ -156,21 +162,23 @@ let g:markdown_syntax_conceal = 0 " tell vim-markdown not to suppress markups
 " Turn on the vim-pencil prose editing features
 " But I don't yet have a good sense for whether
 " pencil has anything I really want.
-"augroup pencil
-"   autocmd!
-"   autocmd filetype markdown,mkd call pencil#init()
-"  augroup END
-" " Pencil / Writing Controls {{{
-"   let g:pencil#wrapModeDefault = 'soft'
-"   let g:pencil#textwidth = 74
-"   let g:pencil#joinspaces = 0
-"   let g:pencil#cursorwrap = 1
-"   let g:pencil#conceallevel = 3
-"   let g:pencil#concealcursor = 'c'
-"   let g:pencil#softDetectSample = 20
-"   let g:pencil#softDetectThreshold = 130
-" " }}}
-" "
+
+augroup pencil
+   autocmd!
+   autocmd filetype markdown,mkd call pencil#init()
+   autocmd filetype text,txt,jd call pencil#init()
+  augroup END
+ " Pencil / Writing Controls {{{
+   let g:pencil#wrapModeDefault = 'soft'
+   let g:pencil#textwidth = 74
+   let g:pencil#joinspaces = 0
+   let g:pencil#cursorwrap = 1
+   let g:pencil#conceallevel = 3
+   let g:pencil#concealcursor = 'c'
+   let g:pencil#softDetectSample = 20
+   let g:pencil#softDetectThreshold = 130
+ " }}}
+ "
  
 " A function to compute a quick word count of 
 " the current buffer
@@ -194,6 +202,15 @@ endfunction
 " Or do it this way, if we ever get rid of the airline plugin
 " set statusline=wc:%{WordCount()}
 
+" keybindings for the cmus controls
+nnoremap <leader>b :CmusNext<cr>
+nnoremap <leader>c :CmusPause<cr>
+nnoremap <leader>i :CmusCurrent<cr>
+nnoremap <leader>v :CmusStop<cr>
+nnoremap <leader>x :CmusPlay<cr>
+nnoremap <leader>z :CmusPrevious<cr>
+
+
 
 "underline markdown headlines
 " NOTE: I'm using normal, not normal!, because I WANT
@@ -208,7 +225,38 @@ function! UnderlineHeading(level)
     normal gtalI### 
 endif
 endfunction
+"Comment out a jeffdown paragraph
+" NOTE: I'm using normal, not normal!, because I WANT
+" vim to use the special meaning of "gtal". 
+function! CommentParagraph()
+    normal ^i[A]
+endfunction
+function! CommentRemainderParagraph()
+    normal i[A]
+endfunction
 
 nnoremap <leader>u1 :call UnderlineHeading(1);<cr>
 nnoremap <leader>u2 :call UnderlineHeading(2);<cr>
 nnoremap <leader>u3 :call UnderlineHeading(3);<cr>
+
+" should probably only do these things for jeffdown files
+set breakindent "indent successive lines of a pgph to match first line
+" Remap help key.
+nnoremap <leader>[ :call CommentParagraph();<cr>
+nnoremap <leader>] :call CommentRemainderParagraph();<cr>
+
+
+" Hijack vimwiki for my own writing projects
+let g:vimwiki_list = [
+         \{'path': '~/RoadProjects/IKTIA/Working', 'synatax':'markdown', 'ext':'.jd'},
+         \{'path': '~/vimwiki', 'synatax':'markdown', 'ext':'.jd'}
+         \]
+"automatic saving and loading of view details
+autocmd BufWinLeave *.jd mkview
+autocmd BufWinEnter *.jd silent loadview
+
+
+"Define a keymap to report current syntax highlighting under cursor
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
