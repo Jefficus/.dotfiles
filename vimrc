@@ -46,7 +46,7 @@ set shiftround
 colorscheme slate "so far, I actually like the default best
 "Override syntax colors for some things that bug me
 highlight Search guibg='NONE' guifg='White' cterm=NONE ctermfg=White ctermbg=NONE
-highlight VimwikiComment guibg='NONE' guifg='Brown' cterm=NONE ctermfg=Brown ctermbg=NONE
+"highlight VimwikiComment guibg='NONE' guifg='Silver' cterm=NONE ctermfg=Silver ctermbg=NONE
 highlight VimwikiItalic guibg='NONE' guifg='White' cterm=NONE ctermfg=White ctermbg=NONE
 
 " Cursor motion
