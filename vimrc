@@ -179,6 +179,11 @@ augroup pencil
    let g:pencil#softDetectThreshold = 130
  " }}}
  "
+ " NOTE: if lines are wrapping in mid-word, try :set linebreak
+ "       which should have them wrapping at word boundaries instead
+ "       I'm not yet sure whether this is a feature of vim or this plugin
+ "       and I don't yet know how best to set it up to always work that way.
+ "       But at least we have a working solution to start with. -JAS
  
 " A function to compute a quick word count of 
 " the current buffer
