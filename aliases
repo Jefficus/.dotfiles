@@ -4,7 +4,7 @@ alias bigfiles='du *|sort -nr|less'
 alias blackburt='ssh -X 192.168.1.121'
 alias bugs='jink -c +s bug=open -l'
 
-alias campus='ssh -L 9000:discus-desk12.usask.ca:22 jas215@tuxworld.usask.ca'
+alias campus='ssh -Y -L 9000:discus-desk12.usask.ca:22 jas215@tuxworld.usask.ca'
 alias ch='ssh -X a3613142427293@creativityhacker.ca'
 
 alias daycount='production-charts -Rl '

@@ -163,27 +163,27 @@ let g:markdown_syntax_conceal = 0 " tell vim-markdown not to suppress markups
 " But I don't yet have a good sense for whether
 " pencil has anything I really want.
 
-augroup pencil
-   autocmd!
-   autocmd filetype markdown,mkd call pencil#init()
-   autocmd filetype text,txt,jd call pencil#init()
-  augroup END
- " Pencil / Writing Controls {{{
-   let g:pencil#wrapModeDefault = 'soft'
-   let g:pencil#textwidth = 74
-   let g:pencil#joinspaces = 0
-   let g:pencil#cursorwrap = 1
-   let g:pencil#conceallevel = 3
-   let g:pencil#concealcursor = 'c'
-   let g:pencil#softDetectSample = 20
-   let g:pencil#softDetectThreshold = 130
- " }}}
- "
- " NOTE: if lines are wrapping in mid-word, try :set linebreak
- "       which should have them wrapping at word boundaries instead
- "       I'm not yet sure whether this is a feature of vim or this plugin
- "       and I don't yet know how best to set it up to always work that way.
- "       But at least we have a working solution to start with. -JAS
+"augroup pencil
+"   autocmd!
+"   autocmd filetype markdown,mkd call pencil#init()
+"   autocmd filetype text,txt,jd call pencil#init()
+"  augroup END
+" " Pencil / Writing Controls {{{
+"   let g:pencil#wrapModeDefault = 'soft'
+"   let g:pencil#textwidth = 74
+"   let g:pencil#joinspaces = 0
+"   let g:pencil#cursorwrap = 1
+"   let g:pencil#conceallevel = 3
+"   let g:pencil#concealcursor = 'c'
+"   let g:pencil#softDetectSample = 20
+"   let g:pencil#softDetectThreshold = 130
+" " }}}
+" "
+" " NOTE: if lines are wrapping in mid-word, try :set linebreak
+" "       which should have them wrapping at word boundaries instead
+" "       I'm not yet sure whether this is a feature of vim or this plugin
+" "       and I don't yet know how best to set it up to always work that way.
+" "       But at least we have a working solution to start with. -JAS
  
 " A function to compute a quick word count of 
 " the current buffer
@@ -256,6 +256,7 @@ let g:vimwiki_list = [
          \{'path': '~/RoadProjects/IKTIA/Working', 'synatax':'markdown', 'ext':'.jd'},
          \{'path': '~/vimwiki', 'synatax':'markdown', 'ext':'.jd'}
          \]
+
 "automatic saving and loading of view details
 autocmd BufWinLeave *.jd mkview
 autocmd BufWinEnter *.jd silent loadview
