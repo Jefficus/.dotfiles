@@ -121,6 +121,7 @@ Plug 'tpope/vim-markdown' " a good markdown handler
 Plug 'tpope/vim-surround'  "adds cs=chg surround, ys=add surround, ds=del
 Plug 'tpope/vim-commentary' "cm for commentify - add cmnt symbols to target
 Plug 'tpope/vim-repeat' "allow other plugins to become repeatable with . cmd
+Plug 'tpope/vim-speeddating' "provide quick tricks for adding/manipulating dates
 Plug 'vim-scripts/ReplaceWithRegister' "gr replace targ with buffer content 
 Plug 'christoomey/vim-titlecase' "gt go title case, 
 Plug 'christoomey/vim-system-copy' "cp targ to sys clipbd, cv pastes from 
@@ -137,6 +138,7 @@ Plug 'vim-airline/vim-airline' "a sexy status line for vim sessions
 Plug 'lervag/vimtex' "a syntax and motions plugin for latex files
 Plug 'azadkuh/vim-cmus' "control cmus music player from inside vim
 Plug 'felixhummel/setcolors.vim' "a tool for previewing vim color schemes
+Plug 'jceb/vim-orgmode' "a tool for text-based todo mgmt
 Plug 'Jefficus/vim-jeffdown' "a tool for syntax highlighting jeffdown files
 
 
