@@ -29,9 +29,6 @@ set visualbell
 " Encoding
 set encoding=utf-8
 
-" Add my version of vim-markdown-wiki to the runtime path
-"set runtimepath^=~/.vim/bundle/vim-jeffdown.vim
-
 " Whitespace
 set textwidth=79
 set tabstop=4
@@ -46,8 +43,8 @@ set shiftround
 colorscheme slate "so far, I actually like the default best
 "Override syntax colors for some things that bug me
 highlight Search guibg='NONE' guifg='White' cterm=NONE ctermfg=White ctermbg=NONE
-highlight VimwikiComment guibg='NONE' guifg='Brown' cterm=NONE ctermfg=Brown ctermbg=NONE
-highlight VimwikiItalic guibg='NONE' guifg='White' cterm=NONE ctermfg=White ctermbg=NONE
+highlight jeffdownItalic guibg='NONE' guifg='White' cterm=NONE ctermfg=White ctermbg=NONE
+highlight jeffdownBold guibg='NONE' guifg='White' cterm=NONE ctermfg=White ctermbg=NONE
 
 " Cursor motion
 set scrolloff=3 "keep 3 lines of text visible above/below current line
@@ -71,9 +68,6 @@ set laststatus=2
 " Last line
 set showmode
 set showcmd
-"
-" Force the jmd files to be treated as vimwiki type
-"autocmd BufNewFile, BufReadPost *.jd set filetype=vimwiki 
 
 " Searching
 "nnoremap / /\v "No idea what this \v does
@@ -115,13 +109,8 @@ map <leader>l :set list!<CR> " Toggle tabs and EOL
 " invoke the vim-plug addon
 call plug#begin('~/.vim/plugged')
 
-" the tool to control local page links
-" but probably overkill. Might just want
-" to find a hyperlink jumper without all the other wiki stuff
-Plug 'vimwiki/vimwiki'
-
 " Load a plugin to handle highlighting for Markdown content
-Plug 'tpope/vim-markdown' " a better markdown handler?
+Plug 'tpope/vim-markdown' " a good markdown handler
 
 " These might implement a more limited wiki link feature as 
 " a vim Minor Mode. But I haven't got it working yet.
@@ -132,6 +121,7 @@ Plug 'tpope/vim-markdown' " a better markdown handler?
 Plug 'tpope/vim-surround'  "adds cs=chg surround, ys=add surround, ds=del
 Plug 'tpope/vim-commentary' "cm for commentify - add cmnt symbols to target
 Plug 'tpope/vim-repeat' "allow other plugins to become repeatable with . cmd
+Plug 'tpope/vim-speeddating' "provide quick tricks for adding/manipulating dates
 Plug 'vim-scripts/ReplaceWithRegister' "gr replace targ with buffer content 
 Plug 'christoomey/vim-titlecase' "gt go title case, 
 Plug 'christoomey/vim-system-copy' "cp targ to sys clipbd, cv pastes from 
@@ -148,6 +138,8 @@ Plug 'vim-airline/vim-airline' "a sexy status line for vim sessions
 Plug 'lervag/vimtex' "a syntax and motions plugin for latex files
 Plug 'azadkuh/vim-cmus' "control cmus music player from inside vim
 Plug 'felixhummel/setcolors.vim' "a tool for previewing vim color schemes
+Plug 'jceb/vim-orgmode' "a tool for text-based todo mgmt
+Plug 'Jefficus/vim-jeffdown' "a tool for syntax highlighting jeffdown files
 
 
 call plug#end()
@@ -166,7 +158,7 @@ let g:markdown_syntax_conceal = 0 " tell vim-markdown not to suppress markups
 augroup pencil
    autocmd!
    autocmd filetype markdown,mkd call pencil#init()
-   autocmd filetype text,txt,jd call pencil#init()
+   autocmd filetype text,txt,jeffdown,jd call pencil#init()
   augroup END
  " Pencil / Writing Controls {{{
    let g:pencil#wrapModeDefault = 'soft'
@@ -178,7 +170,12 @@ augroup pencil
    let g:pencil#softDetectSample = 20
    let g:pencil#softDetectThreshold = 130
  " }}}
- "
+ 
+" " NOTE: if lines are wrapping in mid-word, try :set linebreak
+" "       which should have them wrapping at word boundaries instead
+" "       I'm not yet sure whether this is a feature of vim or this plugin
+" "       and I don't yet know how best to set it up to always work that way.
+" "       But at least we have a working solution to start with. -JAS
  
 " A function to compute a quick word count of 
 " the current buffer
@@ -247,13 +244,14 @@ nnoremap <leader>] :call CommentRemainderParagraph();<cr>
 
 
 " Hijack vimwiki for my own writing projects
-let g:vimwiki_list = [
-         \{'path': '~/RoadProjects/IKTIA/Working', 'synatax':'markdown', 'ext':'.jd'},
-         \{'path': '~/vimwiki', 'synatax':'markdown', 'ext':'.jd'}
-         \]
+" let g:vimwiki_list = [
+"          \{'path': '~/RoadProjects/IKTIA/Working', 'synatax':'markdown', 'ext':'.md'},
+"          \{'path': '~/vimwiki', 'synatax':'markdown', 'ext':'.md'}
+"          \]
+
 "automatic saving and loading of view details
-autocmd BufWinLeave *.jd mkview
-autocmd BufWinEnter *.jd silent loadview
+" autocmd BufWinLeave *.jd mkview
+" autocmd BufWinEnter *.jd silent loadview
 
 
 "Define a keymap to report current syntax highlighting under cursor

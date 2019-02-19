@@ -1,17 +1,18 @@
 alias antibodify='antibody bundle < ~/.dotfiles/plugins_zsh > ~/.zsh_plugins.sh'
 alias bigdirs='du --max-depth=1|sort -nr|less'
 alias bigfiles='du *|sort -nr|less'
-alias blackburt='ssh -X 192.168.1.121'
+alias black='ssh -Y blackburt.local'
 alias bugs='jink -c +s bug=open -l'
 
-alias ch='ssh -X a3613142427293@creativityhacker.ca'
+alias campus='ssh -Y -L 9000:discus-desk12.usask.ca:22 jas215@tuxworld.usask.ca'
+alias ch='ssh -Y a3613142427293@creativityhacker.ca'
 
 alias daycount='production-charts -Rl '
 
 alias ebo='ebook-viewer'
 alias eog='feh'
 
-alias frank='ssh -X 192.168.1.15'
+alias frank='ssh -Y frankenburt.local'
 
 alias godaddy='ssh a3613142427293@a36.160.myftpupload.com'
 alias gpx='/usr/bin/gpx -g -m r2 -v '
