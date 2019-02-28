@@ -4,7 +4,8 @@
 # GEOMETRY_PROMPT_PLUGINS=(hostname path exec_time git) #declare which plugins used on right
 
 # plugins are managed in ~/.dotfiles/zsh-plugins
-source ~/.zsh_plugins.sh
+# disabled until I get antibody running on this machine
+#source ~/.zsh_plugins.sh
 
 # aliases are managed in ~/.dotfiles/aliases
 source ~/.dotfiles/aliases
@@ -44,7 +45,7 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 ##################################################################
 
 # initialize the autojump tool to get j command back
-[[ -s /home/jeffs/.autojump/etc/profile.d/autojump.sh ]] && source /home/jeffs/.autojump/etc/profile.d/autojump.sh
+[[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
 
 # these are only used if I want the command completion system
 # and I think I need to run compinstall first
@@ -68,7 +69,7 @@ autoload -U compinit && compinit -u
 #compdef g=git
 
 # set control vars for powerlevel9k theme
-export DEFAULT_USER=jeffs
+export DEFAULT_USER=$USER
 export POWERLEVEL9K_MODE='awesome-fontconfig'
 # DO NOT ENABLE VCS IN POWER9K ON BLACKBURT!
 # That module is extremely slow and locks up ALL your terminals
@@ -77,6 +78,5 @@ export POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs
 export POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_last
 source ~/.shell_themes/powerlevel9k/powerlevel9k.zsh-theme
 
-# tell zsh about conda
-. /home/jeffs/anaconda3/etc/profile.d/conda.sh
-export PATH="$HOME/anaconda3/bin:$PATH"
+
+[[ -e ~/.zshrc-local ]] && echo "Invoking local zshrc as well as generic." && source ~/.zshrc-local
