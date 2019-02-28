@@ -76,3 +76,7 @@ export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir)
 export POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history command_execution_time)
 export POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_last
 source ~/.shell_themes/powerlevel9k/powerlevel9k.zsh-theme
+
+# tell zsh about conda
+. /home/jeffs/anaconda3/etc/profile.d/conda.sh
+export PATH="$HOME/anaconda3/bin:$PATH"
