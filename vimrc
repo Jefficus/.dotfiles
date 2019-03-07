@@ -77,7 +77,9 @@ set hlsearch
 set ignorecase
 set smartcase
 set showmatch
-map <leader><space> :let @/=''<cr>  "clear search
+
+" In normal mode, just hit <spc><spc> to clear the search highlights
+map <leader><space> :let @/=''<CR>
 
 
 " Remap help key.

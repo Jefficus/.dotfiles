@@ -50,3 +50,15 @@ fi
 echo "Linking new $target"
 ln -s $src $target
 
+
+src=$PWD/Xmodmap
+target=~/.Xmodmap
+if [[ -e "$target" ]]; then
+    echo "Moving old $target"
+    mv $target ${target}-old
+fi
+echo "Linking new $target"
+ln -s $src $target
+
+
+
