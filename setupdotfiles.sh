@@ -27,6 +27,12 @@ fi
 echo "Linking new $target"
 ln -s $src $target
 
+echo "You might need to run chsh to set your default shell to zsh"
+echo "You probably still need to create ~/.shell_themes"
+echo "    and then git clone https://github.com/bhilburn/powerlevel9k.git
+inside that folder"
+echo "And you probably need to install a patched version of nerdfonts."
+
 
 src=$PWD/tmuxrc
 target=~/.tmux.conf
