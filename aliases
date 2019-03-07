@@ -16,6 +16,7 @@ alias frank='ssh -Y frankenburt.local'
 
 alias godaddy='ssh a3613142427293@a36.160.myftpupload.com'
 alias gpx='/usr/bin/gpx -g -m r2 -v '
+alias graham='ssh -X jeffs@graham.computecanada.ca'
 
 alias hogs='du -sk *|sort -nr |less'
 
