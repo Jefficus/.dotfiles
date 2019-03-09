@@ -14,9 +14,9 @@ export TERM="xterm-256color"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="powerlevel9k/powerlevel9k"
 #ZSH_THEME="agnoster"
-alias cls=clear
 
 # set context color based on hostname
+POWERLEVEL9K_ALWAYS_SHOW_CONTEXT=true # not just on remote shells
 POWERLEVEL9K_CONTEXT_TEMPLATE="%m"  # just the machine name
 if [[ $(hostname) == 'blackburt' ]]; then
 	POWERLEVEL9K_CONTEXT_REMOTE_FOREGROUND='blue'
@@ -51,12 +51,14 @@ export POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_last
 source ~/.shell_themes/powerlevel9k/powerlevel9k.zsh-theme
 
 
-
-# # If you come from bash you might have to change your $PATH.
+# If you come from bash you might have to change your $PATH.
 export PATH=.:$HOME/bin:/usr/local/bin:$PATH
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# load favorite alias commands
+source ~/.dotfiles/aliases
 
 
 # Uncomment the following line to use case-sensitive completion.
