@@ -141,6 +141,15 @@ export EDITOR='vim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+
+# These are required to be able to run autojump
+# The plugin invokation higher up in this file
+# is just a binder plugin that links to the autojump
+# command, which must be installed separately
+[[ -s /home/jeffs/.autojump/etc/profile.d/autojump.sh ]] && source /home/jeffs/.autojump/etc/profile.d/autojump.sh
+autoload -U compinit && compinit -u
+
+
 # now invoke any zsh config intended for the local machine only
 [[ -e ~/.zshrc-local ]] && source ~/.zshrc-local
 

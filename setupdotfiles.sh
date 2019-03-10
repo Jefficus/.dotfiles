@@ -72,6 +72,8 @@ sh -c "$(wget
 https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
 -O -)"
 
+echo "Make sure the autojump command is installed."
+
 echo "Installing powerlevel9k theme for zsh"
 git clone https://github.com/bhilburn/powerlevel9k.git \
     ~/.oh-my-zsh/custom/themes/powerlevel9k
