@@ -260,7 +260,7 @@ nnoremap <leader>] :call CommentRemainderParagraph();<cr>
 
 
 " Create a custom key for inserting a datetime stamp
-nmap <F3> i<C-R>=strftime("%Y-%m-%d %H:%M")<CR><Esc>
+nmap <F3> O<C-R>=strftime("%Y-%m-%d %H:%M")<CR><Esc>
 imap <F3> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
 " Underline the current line with dashes
 nnoremap <F4> yyp<c-v>$r-
