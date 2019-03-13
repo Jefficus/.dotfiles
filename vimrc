@@ -77,7 +77,9 @@ set hlsearch
 set ignorecase
 set smartcase
 set showmatch
-map <leader><space> :let @/=''<cr>  "clear search
+
+" In normal mode, just hit <spc><spc> to clear the search highlights
+map <leader><space> :let @/=''<CR>
 
 
 " Remap help key.
@@ -139,6 +141,11 @@ Plug 'lervag/vimtex' "a syntax and motions plugin for latex files
 Plug 'azadkuh/vim-cmus' "control cmus music player from inside vim
 Plug 'felixhummel/setcolors.vim' "a tool for previewing vim color schemes
 Plug 'Jefficus/vim-jeffdown' "a tool for syntax highlighting jeffdown files
+
+Plug 'morhetz/gruvbox' "a low-contrast color scheme
+Plug 'kamwitsta/nordisk' "a low-contrast color scheme
+Plug 'kamwitsta/dutch_peasants' "a low-contrast color scheme
+Plug 'junegunn/seoul256.vim' "a low-contrast color scheme
 
 call plug#end()
 
