@@ -138,9 +138,7 @@ Plug 'vim-airline/vim-airline' "a sexy status line for vim sessions
 Plug 'lervag/vimtex' "a syntax and motions plugin for latex files
 Plug 'azadkuh/vim-cmus' "control cmus music player from inside vim
 Plug 'felixhummel/setcolors.vim' "a tool for previewing vim color schemes
-Plug 'jceb/vim-orgmode' "a tool for text-based todo mgmt
 Plug 'Jefficus/vim-jeffdown' "a tool for syntax highlighting jeffdown files
-
 
 call plug#end()
 
@@ -253,6 +251,13 @@ nnoremap <leader>] :call CommentRemainderParagraph();<cr>
 " autocmd BufWinLeave *.jd mkview
 " autocmd BufWinEnter *.jd silent loadview
 
+
+" Create a custom key for inserting a datetime stamp
+nmap <F3> i<C-R>=strftime("%Y-%m-%d %H:%M")<CR><Esc>
+imap <F3> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
+" Underline the current line with dashes
+nnoremap <F4> yyp<c-v>$r-
+inoremap <F4> <Esc>yyp<c-v>$r-A
 
 "Define a keymap to report current syntax highlighting under cursor
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'

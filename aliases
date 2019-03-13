@@ -16,6 +16,7 @@ alias frank='ssh -Y frankenburt.local'
 
 alias godaddy='ssh a3613142427293@a36.160.myftpupload.com'
 alias gpx='/usr/bin/gpx -g -m r2 -v '
+alias graham='ssh -X jeffs@graham.computecanada.ca'
 
 alias hogs='du -sk *|sort -nr |less'
 
@@ -27,6 +28,8 @@ alias ispellus='/usr/bin/ispell -d american -p ~/.ispell_american'
 alias jtidy='astyle'
 alias jindent='astyle'
 
+alias l='jrnl'
+alias t='todo.sh'
 alias ls='LC_COLLATE=C ls -hCF --color=never --group-directories-first'
 alias ll='LC_COLLATE=C ls -hl'
 alias la='LC_COLLATE=C ls -ha'
@@ -43,8 +46,6 @@ alias slicer='/opt/slic3r/bin/slic3r'
 alias SPcheck='gvim -R /home/jeffs/MIGRATED/Development/Writing/Active/StrangePlaces.scriv/Production/IN-chapters.jd'
 alias SPebook='ebook-viewer ~/Calibre\ Library/Jefferson\ Smith/Strange\ Places\ \(2\)/Strange\ Places\ -\ Jefferson\ Smith.epub'
 alias splat='splaticus'
-
-alias t="~/bin/todo.py"
 
 alias update='sudo apt-get update'
 alias urgent='splaticus list urgent'

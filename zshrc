@@ -78,5 +78,5 @@ export POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs
 export POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_last
 source ~/.shell_themes/powerlevel9k/powerlevel9k.zsh-theme
 
-[[ -e ~/.zshrc-local ]] && echo "Invoking local zshrc as well as generic." && source ~/.zshrc-local
+[[ -e ~/.zshrc-local ]] && source ~/.zshrc-local
 
