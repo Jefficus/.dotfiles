@@ -144,6 +144,12 @@ Plug 'jceb/vim-orgmode' "a tool for text-based todo mgmt
 Plug 'Jefficus/vim-jeffdown' "a tool for syntax highlighting jeffdown files
 
 
+Plug 'morhetz/gruvbox' "a low-contrast color scheme
+Plug 'kamwitsta/nordisk' "a low-contrast color scheme
+Plug 'kamwitsta/dutch_peasants' "a low-contrast color scheme
+Plug 'junegunn/seoul256.vim' "a low-contrast color scheme
+
+
 call plug#end()
 
 
