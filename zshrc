@@ -149,6 +149,9 @@ export EDITOR='vim'
 [[ -s /home/jeffs/.autojump/etc/profile.d/autojump.sh ]] && source /home/jeffs/.autojump/etc/profile.d/autojump.sh
 autoload -U compinit && compinit -u
 
+# set my prefs for how cmdline history works
+setopt sharehistory appendhistory extendedglob notify histignorealldups nohistverify
+
 
 # now invoke any zsh config intended for the local machine only
 [[ -e ~/.zshrc-local ]] && source ~/.zshrc-local
