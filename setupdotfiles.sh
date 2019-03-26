@@ -68,9 +68,7 @@ ln -s $src $target
 
 
 echo "Installing oh-my-zsh"
-sh -c "$(wget
-https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
--O -)"
+sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
 echo "Make sure the autojump command is installed."
 

@@ -146,6 +146,7 @@ Plug 'morhetz/gruvbox' "a low-contrast color scheme
 Plug 'kamwitsta/nordisk' "a low-contrast color scheme
 Plug 'kamwitsta/dutch_peasants' "a low-contrast color scheme
 Plug 'junegunn/seoul256.vim' "a low-contrast color scheme
+Plug 'ap/vim-templates' "create template system for init'ing new files
 
 call plug#end()
 
@@ -154,6 +155,7 @@ call plug#end()
 " Overrides and extensions for included plugins
 """""""""""""""""""""""""""""""""""""""""""""""
 let g:markdown_syntax_conceal = 0 " tell vim-markdown not to suppress markups
+let g:templates_empty_files = 1 " add templates to existing empty files
 
 
 " Turn on the vim-pencil prose editing features
@@ -260,7 +262,7 @@ nnoremap <leader>] :call CommentRemainderParagraph();<cr>
 
 
 " Create a custom key for inserting a datetime stamp
-nmap <F3> i<C-R>=strftime("%Y-%m-%d %H:%M")<CR><Esc>
+nmap <F3> O<C-R>=strftime("%Y-%m-%d %H:%M")<CR><Esc>
 imap <F3> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
 " Underline the current line with dashes
 nnoremap <F4> yyp<c-v>$r-
