@@ -150,7 +150,7 @@ export EDITOR='vim'
 autoload -U compinit && compinit -u
 
 # set my prefs for how cmdline history works
-setopt sharehistory appendhistory extendedglob notify histignorealldups nohistverify
+setopt sharehistory appendhistory extendedglob notify nohistverify
 
 
 # now invoke any zsh config intended for the local machine only
