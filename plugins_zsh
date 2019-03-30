@@ -4,6 +4,8 @@ robbyrussell/oh-my-zsh path:plugins/pip
 robbyrussell/oh-my-zsh path:plugins/sudo
 robbyrussell/oh-my-zsh path:plugins/command-not-found
 
+romkatv/powerlevel10k
+
 # These are pretty but they slow down ALL sh cmds
 #denysdovhan/spaceship-prompt
 #geometry-zsh/geometry
