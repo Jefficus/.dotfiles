@@ -13,6 +13,11 @@ fi
 echo "Linking new $target"
 ln -s $src $target
 
+src=$PWD/vim-templates
+target=~/.vim/templates
+echo "Linking new $target"
+ln -s $src $target
+
 
 src=$PWD/zshrc
 target=~/.zshrc
