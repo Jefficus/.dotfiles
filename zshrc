@@ -1,3 +1,7 @@
+# TURN THIS ON FOR PROFILING ZSH SPEED
+# AND THEN ANOTHER LINE AT THE BOTTOM
+zmodload zsh/zprof
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -149,7 +153,25 @@ export EDITOR='vim'
 # is just a binder plugin that links to the autojump
 # command, which must be installed separately
 [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
-autoload -U compinit && compinit -u
+#autoload -U compinit && compinit -u
+
+# On slow systems, checking the cached .zcompdump file to see if it must be 
+# regenerated adds a noticable delay to zsh startup.  This little hack restricts 
+# it to once a day.  It should be pasted into your own completion file.
+#
+# The globbing is a little complicated here:
+# - '#q' is an explicit glob qualifier that makes globbing work within zsh's [[ ]] construct.
+# - 'N' makes the glob pattern evaluate to nothing when it doesn't match (rather than throw a globbing error)
+# - '.' matches "regular files"
+# - 'mh+24' matches files (or directories or whatever) that are older than 24 hours.
+autoload -Uz compinit 
+if [[ -n $(find $HOME/.zcompdump -mmin +1440) ]]; then
+    #echo "Full compinit"  (once per day)
+	compinit;
+else
+    #echo "Quick compinit" (all the other times per day)
+	compinit -C;
+fi;
 
 # set my prefs for how cmdline history works
 setopt sharehistory appendhistory extendedglob notify nohistverify
@@ -158,3 +180,5 @@ setopt sharehistory appendhistory extendedglob notify nohistverify
 # now invoke any zsh config intended for the local machine only
 [[ -e $HOME/.zshrc-local ]] && source $HOME/.zshrc-local
 
+# TURN THIS ON TO REPORT ZSH TIMING (AFTER ENABLING TOP LINE TOO)
+zprof |head -n 10
