@@ -11,7 +11,7 @@ alias ch='ssh -Y a3613142427293@creativityhacker.ca'
 alias daycount='production-charts -Rl '
 
 alias ebo='ebook-viewer'
-alias eog='feh'
+alias eog='feh --scale-down'
 
 alias frank='ssh -Y frankenburt.local'
 
@@ -38,6 +38,8 @@ alias la='LC_COLLATE=C ls -ha'
 alias midiserver='timidity -iA -A 500 2>&1 /dev/null'
 
 alias OKcheck='gvim -R /home/jeffs/MIGRATED/Development/Writing/Active/OathKeeper.scriv/Production/IN-chapters.jd'
+
+alias qute='.venv/bin/python3 -m qutebrowser'
 
 #alias rm='~/bin/rm'
 alias rm="mv -t ~/.local/share/Trash/files --backup=t --verbose"

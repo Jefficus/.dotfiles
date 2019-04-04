@@ -6,7 +6,7 @@ bind C-a send-prefix
 # lets me scroll properly
 set -g mouse on
 
-# jorce a reload of the config file
+# force a reload of the config file
 unbind r
 bind r source-file ~/.tmux.conf
 
