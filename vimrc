@@ -47,7 +47,7 @@ highlight jeffdownItalic guibg='NONE' guifg='White' cterm=NONE ctermfg=White cte
 highlight jeffdownBold guibg='NONE' guifg='White' cterm=NONE ctermfg=White ctermbg=NONE
 
 " Cursor motion
-set scrolloff=3 "keep 3 lines of text visible above/below current line
+set scrolloff=1 "keep 1 lines of text visible above/below current line
 set backspace=indent,eol,start "makes BS key work as expected in insert mode
 set matchpairs+=<:> " use % to jump between pairs
 runtime! macros/matchit.vim
@@ -259,6 +259,10 @@ nnoremap <leader>] :call CommentRemainderParagraph();<cr>
 " autocmd BufWinEnter *.jd silent loadview
 
 
+"set up F2 to toggle paste indentation mode
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
 " Create a custom key for inserting a datetime stamp
 nmap <F3> O<C-R>=strftime("%Y-%m-%d %H:%M")<CR><Esc>
 imap <F3> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>

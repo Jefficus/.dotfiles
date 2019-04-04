@@ -89,3 +89,25 @@ bind-key > run-shell 'tmux show-buffer | xsel -i -b' \; display-message "Copy To
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run -b '~/.dotfiles/plugins_tmux/tpm/tpm'
+
+# configure the tmux status bar colors to indicate which machine
+# tmux is running on
+if [[ $(hostname) == 'blackburt' ]]; then
+    set-option -g status-bg black
+    set-option -g status-fg white
+elif [[ $(hostname) == 'frankenburt' ]]; then
+    set-option -g status-bg blue
+    set-option -g status-fg white
+elif [[ $(hostname) == 'graham' ]]; then
+    set-option -g status-bg green
+    set-option -g status-fg black
+elif [[ $(hostname) == 'cedar' ]]; then
+    set-option -g status-bg brown
+    set-option -g status-fg white
+elif [[ $(hostname) == 'yakitori' ]]; then
+    set-option -g status-bg yellow
+    set-option -g status-fg black
+else
+    set-option -g status-bg white
+    set-option -g status-fg black
+fi
