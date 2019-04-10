@@ -1,6 +1,6 @@
 # TURN THIS ON FOR PROFILING ZSH SPEED
 # AND THEN ANOTHER LINE AT THE BOTTOM
-zmodload zsh/zprof
+# zmodload zsh/zprof
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -51,10 +51,10 @@ export POWERLEVEL9K_MODE='awesome-fontconfig'
 # DO NOT ENABLE VCS IN POWER9K ON BLACKBURT!
 # That module is extremely slow and locks up ALL your terminals
 export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir)
-export POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history command_execution_time)
+export POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs virtualenv history command_execution_time)
 export POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_last
-#source $HOME/.shell_themes/powerlevel9k/powerlevel9k.zsh-theme
-source $HOME/.shell_themes/powerlevel10k/powerlevel9k.zsh-theme
+source $HOME/.shell_themes/powerlevel9k/powerlevel9k.zsh-theme
+#source $HOME/.shell_themes/powerlevel10k/powerlevel9k.zsh-theme
 
 
 # If you come from bash you might have to change your $PATH.
@@ -181,4 +181,4 @@ setopt sharehistory appendhistory extendedglob notify nohistverify
 [[ -e $HOME/.zshrc-local ]] && source $HOME/.zshrc-local
 
 # TURN THIS ON TO REPORT ZSH TIMING (AFTER ENABLING TOP LINE TOO)
-zprof |head -n 10
+# zprof |head -n 10
