@@ -147,6 +147,7 @@ Plug 'kamwitsta/nordisk' "a low-contrast color scheme
 Plug 'kamwitsta/dutch_peasants' "a low-contrast color scheme
 Plug 'junegunn/seoul256.vim' "a low-contrast color scheme
 Plug 'ap/vim-templates' "create template system for init'ing new files
+Plug 'elzr/vim-json' "better syntax highlighting for json
 
 call plug#end()
 
@@ -262,7 +263,7 @@ nnoremap <leader>] :call CommentRemainderParagraph();<cr>
 
 
 " Create a custom key for inserting a datetime stamp
-nmap <F3> O<C-R>=strftime("%Y-%m-%d %H:%M")<CR><Esc>
+nmap <F3> o<C-R>=strftime("%Y-%m-%d %H:%M")<CR><Esc>
 imap <F3> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
 " Underline the current line with dashes
 nnoremap <F4> yyp<c-v>$r-
