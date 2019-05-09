@@ -1,6 +1,6 @@
 # TURN THIS ON FOR PROFILING ZSH SPEED
 # AND THEN ANOTHER LINE AT THE BOTTOM
-zmodload zsh/zprof
+# zmodload zsh/zprof
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -181,4 +181,4 @@ setopt sharehistory appendhistory extendedglob notify nohistverify
 [[ -e $HOME/.zshrc-local ]] && source $HOME/.zshrc-local
 
 # TURN THIS ON TO REPORT ZSH TIMING (AFTER ENABLING TOP LINE TOO)
-zprof |head -n 10
+# zprof |head -n 10
