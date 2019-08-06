@@ -7,14 +7,14 @@ set -g prefix C-a
 unbind C-b
 bind C-a send-prefix
 
-# hopefully this lets me scroll properly
+# lets me scroll properly
 set -g mouse on
 
 # force a reload of the config file
 unbind r
 bind r source-file ~/.tmux.conf
 
-# quick pane cycling
+# quick pane cycling with C-a C-a
 unbind ^A
 bind ^A select-pane -t :.+
 
@@ -22,33 +22,12 @@ bind ^A select-pane -t :.+
 bind | split-window -h
 bind - split-window -v
 
-#######################################################
-# EXPERIMENTAL
-# Place where I try new commands to see if I like them
-# If they stay here for a while, it's probably time to
-# move them somewhere higher up.
-######################################################
-
-# # vim-like copy-paste bindings for TMUX
-# bind P paste-buffer
-# bind-key -T copy-mode-vi v send-keys -X begin-selection
-# bind-key -T copy-mode-vi y send-keys -X copy-selection
-# bind-key -T copy-mode-vi r send-keys -X rectangle-toggle
-
 #-------------------------------------------------------#
 #Pane colours
 #-------------------------------------------------------#
 # make the inactive panes appear cloudy
 set -g window-style 'fg=colour247,bg=colour236'
 set -g window-active-style 'fg=colour250,bg=black'
- 
-#pane border
-# set -g pane-border-bg colour235
-# set -g pane-border-fg colour238
-# set -g pane-active-border-bg colour236
-# set -g pane-active-border-fg colour51
-#-------------------------------------------------------#
-
 
 # Smart pane switching with awareness of Vim splits.
 # See: https://github.com/christoomey/vim-tmux-navigator
@@ -70,12 +49,69 @@ unbind Down
 unbind Up
 unbind Right
 
-
 # List of tmux plugins to load
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-sensible'
+#set -g @plugin 'tmux-plugins/tmux-yank' # tmux buff autocp to clipbd
+
+
+
+#######################################################
+# EXPERIMENTAL
+# Place where I try new commands to see if I like them
+# If they stay here for a while, it's probably time to
+# move them somewhere higher up.
+######################################################
+
+
+####################################################
+# Setting up a copy/paste system
+# (Also requires the yank plugin, I think)
+# 
+# ENTER COPY MODE:  C-a [
+# QUIT COPY MODE:   ESC or q
+# DEFINE SELECTION: v motionkeys... 
+# YANK TO TMUX BUF: y
+# COPY TMUX BUF - CLPBD: C-a >
+# COPY CLIPBD BUF - TMUX: C-a <
+
+# vim keys in copy and choose mode
+set-window-option -g mode-keys vi
+
+# enable vim-like begin and end selection keys for copy mode
+bind-key -T copy-mode-vi 'v' send -X begin-selection
+bind-key -T copy-mode-vi 'y' send -X copy-selection-and-cancel
+
+# Send To Tmux Clipboard or System Clipboard
+bind-key < run-shell "tmux set-buffer -- \"$(xsel -o -b)\"" \; display-message "Copy To Tmux Clipboard"
+bind-key > run-shell 'tmux show-buffer | xsel -i -b' \; display-message "Copy To System Clipboard"
+
+# END OF copy/paste system
+#####################################################
 
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run -b '~/.dotfiles/plugins_tmux/tpm/tpm'
+
+# configure the tmux status bar colors to indicate which machine
+# tmux is running on
+if [[ $(hostname) == 'blackburt' ]]; then
+    set-option -g status-bg black
+    set-option -g status-fg white
+elif [[ $(hostname) == 'frankenburt' ]]; then
+    set-option -g status-bg blue
+    set-option -g status-fg white
+elif [[ $(hostname) == 'graham' ]]; then
+    set-option -g status-bg green
+    set-option -g status-fg black
+elif [[ $(hostname) == 'cedar' ]]; then
+    set-option -g status-bg brown
+    set-option -g status-fg white
+elif [[ $(hostname) == 'yakitori' ]]; then
+    set-option -g status-bg yellow
+    set-option -g status-fg black
+else
+    set-option -g status-bg white
+    set-option -g status-fg black
+fi

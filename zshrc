@@ -1,78 +1,197 @@
-# Set up geometry prompt params beefore loading plugins
-# PROMPT_GEOMETRY_COLORIZE_SYMBOL=true  #change icon color based on hostname
-# PROMPT_GEOMETRY_EXEC_TIME=true        #show elapsed time for long shell cmds
-# GEOMETRY_PROMPT_PLUGINS=(hostname path exec_time git) #declare which plugins used on right
+# TURN THIS ON FOR PROFILING ZSH SPEED
+# AND THEN ANOTHER LINE AT THE BOTTOM
+# zmodload zsh/zprof
 
+<<<<<<< HEAD
 # plugins are managed in ~/.dotfiles/zsh-plugins
 #source ~/.zsh_plugins.sh
 
 # aliases are managed in ~/.dotfiles/aliases
 source ~/.dotfiles/aliases
+=======
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+>>>>>>> 3b729fad0b39ac30cab3aafdf05b7dc413b07ed6
 
-# tell the system that we have a full color terminal 
+# tell the system that we have a full color terminal
+# and do so before other plugins start looking for it
 export TERM="xterm-256color"
+
+# Path to your oh-my-zsh installation.
+#export ZSH="$HOME/.oh-my-zsh"
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+#ZSH_THEME="powerlevel9k/powerlevel9k"
+#ZSH_THEME="powerlevel10k/powerlevel9k"
+#ZSH_THEME="agnoster"
+
+# set context color based on hostname
+POWERLEVEL9K_ALWAYS_SHOW_CONTEXT=true # not just on remote shells
+POWERLEVEL9K_CONTEXT_TEMPLATE="%m"  # just the machine name
+if [[ $(hostname) == 'blackburt' ]]; then
+	POWERLEVEL9K_CONTEXT_REMOTE_FOREGROUND='blue'
+	POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='blue'
+elif [[ $(hostname) == 'frankenburt' ]]; then
+	POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='cyan'
+	POWERLEVEL9K_CONTEXT_REMOTE_FOREGROUND='cyan'
+elif [[ $(hostname) == 'graham' ]]; then
+	POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='green'
+	POWERLEVEL9K_CONTEXT_REMOTE_FOREGROUND='green'
+elif [[ $(hostname) == 'cedar' ]]; then
+	POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='orange'
+	POWERLEVEL9K_CONTEXT_REMOTE_FOREGROUND='orange'
+elif [[ $(hostname) == 'yakitori' ]]; then
+	POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='yellow'
+	POWERLEVEL9K_CONTEXT_REMOTE_FOREGROUND='yellow'
+else
+	POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='white'
+	POWERLEVEL9K_CONTEXT_REMOTE_FOREGROUND='white'
+fi
+POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND='black'
+POWERLEVEL9K_CONTEXT_REMOTE_BACKGROUND='black'
+
+# set control vars for powerlevel9k theme
+export DEFAULT_USER=$USER
+export POWERLEVEL9K_MODE='awesome-fontconfig'
+# DO NOT ENABLE VCS IN POWER9K ON BLACKBURT!
+# That module is extremely slow and locks up ALL your terminals
+export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir)
+export POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs virtualenv history command_execution_time)
+export POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_last
+source $HOME/.shell_themes/powerlevel9k/powerlevel9k.zsh-theme
+#source $HOME/.shell_themes/powerlevel10k/powerlevel9k.zsh-theme
 
 
 # If you come from bash you might have to change your $PATH.
 export PATH=.:$HOME/bin:/usr/local/bin:$PATH
 
-# turn on prompt substitutions so that themes can 
-# create informative display prompts
-#setopt PROMPT_SUBST
+# ssh
+export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
+
+# load favorite alias commands
+source $HOME/.dotfiles/aliases
 
 
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+<<<<<<< HEAD
+# initialize the autojump tool to get j command back
+[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
+=======
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+>>>>>>> 3b729fad0b39ac30cab3aafdf05b7dc413b07ed6
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
-HIST_STAMPS="yyyy/mm/dd"
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
 
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $HOME/.oh-my-zsh/plugins/*
+# Custom plugins may be added to $HOME/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git pip sudo autojump command-not-found virtualenv virtualenvwrapper)
+
+#source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+export EDITOR='vim'
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
 # ssh
-export SSH_KEY_PATH="~/.ssh/rsa_id"
+# export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate $HOME/.zshrc"
+# alias ohmyzsh="mate $HOME/.oh-my-zsh"
 
 
+# These are required to be able to run autojump
+# The plugin invokation higher up in this file
+# is just a binder plugin that links to the autojump
+# command, which must be installed separately
+[[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
+#autoload -U compinit && compinit -u
 
-##################################################################
-# EXPERIMENTAL
-# This is where I try commands to see if I like the way they work
-# If a command stays here for long, move it somewhere higher up
-##################################################################
+# On slow systems, checking the cached .zcompdump file to see if it must be 
+# regenerated adds a noticable delay to zsh startup.  This little hack restricts 
+# it to once a day.  It should be pasted into your own completion file.
+#
+# The globbing is a little complicated here:
+# - '#q' is an explicit glob qualifier that makes globbing work within zsh's [[ ]] construct.
+# - 'N' makes the glob pattern evaluate to nothing when it doesn't match (rather than throw a globbing error)
+# - '.' matches "regular files"
+# - 'mh+24' matches files (or directories or whatever) that are older than 24 hours.
+autoload -Uz compinit 
+if [[ -n $(find $HOME/.zcompdump -mmin +1440) ]]; then
+    #echo "Full compinit"  (once per day)
+	compinit;
+else
+    #echo "Quick compinit" (all the other times per day)
+	compinit -C;
+fi;
 
-# initialize the autojump tool to get j command back
-[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
+# set my prefs for how cmdline history works
+setopt sharehistory appendhistory extendedglob notify nohistverify
 
-# these are only used if I want the command completion system
-# and I think I need to run compinstall first
-autoload -U compinit && compinit -u
 
-# disable history verifications
-#unsetopt HIST_VERIFY
+# now invoke any zsh config intended for the local machine only
+[[ -e $HOME/.zshrc-local ]] && source $HOME/.zshrc-local
 
-# No arguments: `git status`
-# With arguments: acts like `git`
-
-# g() 
-#   if [[ $# > 0 ]]; then
-#     git $@
-#   else
-#     git status
-#   fi
-# }
-
-# Complete go like git
-#compdef g=git
-
-# set control vars for powerlevel9k theme
-export DEFAULT_USER=jeffs
-export POWERLEVEL9K_MODE='awesome-fontconfig'
-# DO NOT ENABLE VCS IN POWER9K ON BLACKBURT!
-# That module is extremely slow and locks up ALL your terminals
-export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir)
-export POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history command_execution_time)
-export POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_last
-source ~/.shell_themes/powerlevel9k/powerlevel9k.zsh-theme
+# TURN THIS ON TO REPORT ZSH TIMING (AFTER ENABLING TOP LINE TOO)
+# zprof |head -n 10

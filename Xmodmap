@@ -1,0 +1,5 @@
+! disable the stupid extra backslash near the left shift key
+keycode 94 = NoSymbol
+
+! change shift lock key into simple shift key
+keycode 66 = Shift_L NoSymbol Shift_L

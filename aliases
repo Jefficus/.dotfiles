@@ -1,20 +1,25 @@
 alias antibodify='antibody bundle < ~/.dotfiles/plugins_zsh > ~/.zsh_plugins.sh'
 alias bigdirs='du --max-depth=1|sort -nr|less'
 alias bigfiles='du *|sort -nr|less'
-alias blackburt='ssh -X 192.168.1.121'
+alias black='ssh -Y blackburt.local'
 alias bugs='jink -c +s bug=open -l'
 
-alias ch='ssh -X a3613142427293@creativityhacker.ca'
+alias discus='ssh -Y -L 9000:discus-desk12.usask.ca:22 jas215@tuxworld.usask.ca'
+alias campus='ssh -X jas215@tuxworld.usask.ca'
+alias cedar='ssh jeffs@cedar.computecanada.ca'
+alias ch='ssh -Y a3613142427293@creativityhacker.ca'
 
 alias daycount='production-charts -Rl '
 
 alias ebo='ebook-viewer'
-alias eog='feh'
+alias eog='feh --scale-down'
 
+alias findrecent='find . -type f -mtime -9 -exec ls -l --time-style=full-iso {} \;| cut -d\  -f 1-5 --complement|sort|less'
 alias frank='ssh -X frankenburt.local'
 
 alias godaddy='ssh a3613142427293@a36.160.myftpupload.com'
 alias gpx='/usr/bin/gpx -g -m r2 -v '
+alias graham='ssh -X jeffs@graham.computecanada.ca'
 
 alias hogs='du -sk *|sort -nr |less'
 
@@ -26,6 +31,8 @@ alias ispellus='/usr/bin/ispell -d american -p ~/.ispell_american'
 alias jtidy='astyle'
 alias jindent='astyle'
 
+alias l='jrnl'
+alias t='todo.sh'
 alias ls='LC_COLLATE=C ls -hCF --color=never --group-directories-first'
 alias ll='LC_COLLATE=C ls -hl'
 alias la='LC_COLLATE=C ls -ha'
@@ -33,6 +40,8 @@ alias la='LC_COLLATE=C ls -ha'
 alias midiserver='timidity -iA -A 500 2>&1 /dev/null'
 
 alias OKcheck='gvim -R /home/jeffs/MIGRATED/Development/Writing/Active/OathKeeper.scriv/Production/IN-chapters.jd'
+
+alias qute='.venv/bin/python3 -m qutebrowser'
 
 #alias rm='~/bin/rm'
 alias rm="mv -t ~/.local/share/Trash/files --backup=t --verbose"
@@ -43,14 +52,10 @@ alias SPcheck='gvim -R /home/jeffs/MIGRATED/Development/Writing/Active/StrangePl
 alias SPebook='ebook-viewer ~/Calibre\ Library/Jefferson\ Smith/Strange\ Places\ \(2\)/Strange\ Places\ -\ Jefferson\ Smith.epub'
 alias splat='splaticus'
 
-alias t="~/bin/todo.py"
-
 alias update='sudo apt-get update'
 alias urgent='splaticus list urgent'
 
 alias vbj='cd ~/VBJ; vi -O index.md `date -Idate`.md'
 
-alias yak='ssh -X yakitori'
-
-
-
+alias yak='ssh -X -t jas215@tuxworld.usask.ca ssh -X yakitori'
+alias som='ssh -X -t jas215@tuxworld.usask.ca ssh -X somtam'
