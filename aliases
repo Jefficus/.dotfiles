@@ -11,7 +11,7 @@ alias daycount='production-charts -Rl '
 alias ebo='ebook-viewer'
 alias eog='feh'
 
-alias frank='ssh -X 192.168.1.15'
+alias frank='ssh -X frankenburt.local'
 
 alias godaddy='ssh a3613142427293@a36.160.myftpupload.com'
 alias gpx='/usr/bin/gpx -g -m r2 -v '
@@ -50,6 +50,7 @@ alias urgent='splaticus list urgent'
 
 alias vbj='cd ~/VBJ; vi -O index.md `date -Idate`.md'
 
+alias yak='ssh -X yakitori'
 
 
 

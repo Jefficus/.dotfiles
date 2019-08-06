@@ -4,7 +4,7 @@
 # GEOMETRY_PROMPT_PLUGINS=(hostname path exec_time git) #declare which plugins used on right
 
 # plugins are managed in ~/.dotfiles/zsh-plugins
-source ~/.zsh_plugins.sh
+#source ~/.zsh_plugins.sh
 
 # aliases are managed in ~/.dotfiles/aliases
 source ~/.dotfiles/aliases
@@ -44,7 +44,7 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 ##################################################################
 
 # initialize the autojump tool to get j command back
-[[ -s /home/jeffs/.autojump/etc/profile.d/autojump.sh ]] && source /home/jeffs/.autojump/etc/profile.d/autojump.sh
+[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
 
 # these are only used if I want the command completion system
 # and I think I need to run compinstall first
