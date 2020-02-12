@@ -5,9 +5,10 @@ alias black='ssh -Y blackburt.local'
 alias bugs='jink -c +s bug=open -l'
 
 alias discus='ssh -Y -L 9000:discus-desk12.usask.ca:22 jas215@tuxworld.usask.ca'
-alias campus='ssh -X jas215@tuxworld.usask.ca'
+alias campus='ssh -X jas215@tux6.usask.ca'
 alias cedar='ssh jeffs@cedar.computecanada.ca'
-alias ch='ssh -Y a3613142427293@creativityhacker.ca'
+alias ch='ssh -X -p 18765 creat561@creativityhacker.ca'
+alias cmus='echo "Use vimpc instead."'
 
 alias daycount='production-charts -Rl '
 
@@ -48,7 +49,7 @@ alias rm="mv -t ~/.local/share/Trash/files --backup=t --verbose"
 
 alias slic3r='/opt/slic3r/bin/slic3r'
 alias slicer='/opt/slic3r/bin/slic3r'
-alias SPcheck='gvim -R /home/jeffs/MIGRATED/Development/Writing/Active/StrangePlaces.scriv/Production/IN-chapters.jd'
+alias SPcheck='vim -R /home/jeffs/Projects/Writing/Active/Archive/StrangePlaces.scriv/Production/IN-chapters.jd'
 alias SPebook='ebook-viewer ~/Calibre\ Library/Jefferson\ Smith/Strange\ Places\ \(2\)/Strange\ Places\ -\ Jefferson\ Smith.epub'
 alias splat='splaticus'
 
@@ -59,3 +60,4 @@ alias vbj='cd ~/VBJ; vi -O index.md `date -Idate`.md'
 
 alias yak='ssh -X -t jas215@tuxworld.usask.ca ssh -X yakitori'
 alias som='ssh -X -t jas215@tuxworld.usask.ca ssh -X somtam'
+alias somtam='ssh -X -t jas215@tuxworld.usask.ca ssh -X somtam'
