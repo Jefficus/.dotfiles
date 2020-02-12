@@ -1,6 +1,6 @@
 # set the default shell
-set -g default-command /usr/bin/zsh
-set -g default-shell /usr/bin/zsh
+set -g default-command /bin/bash
+set -g default-shell /bin/bash
 
 # remap prefix to Ctl-a
 set -g prefix C-a
@@ -115,3 +115,4 @@ else
     set-option -g status-bg white
     set-option -g status-fg black
 fi
+echo "Running on '$(hostname)'"
