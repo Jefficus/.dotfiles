@@ -2,8 +2,16 @@
 # AND THEN ANOTHER LINE AT THE BOTTOM
 # zmodload zsh/zprof
 
+<<<<<<< HEAD
+# plugins are managed in ~/.dotfiles/zsh-plugins
+#source ~/.zsh_plugins.sh
+
+# aliases are managed in ~/.dotfiles/aliases
+source ~/.dotfiles/aliases
+=======
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+>>>>>>> 3b729fad0b39ac30cab3aafdf05b7dc413b07ed6
 
 # tell the system that we have a full color terminal
 # and do so before other plugins start looking for it
@@ -89,8 +97,13 @@ source $HOME/.dotfiles/aliases
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
 
+<<<<<<< HEAD
+# initialize the autojump tool to get j command back
+[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
+=======
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
+>>>>>>> 3b729fad0b39ac30cab3aafdf05b7dc413b07ed6
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
