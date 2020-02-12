@@ -92,9 +92,11 @@ bind-key > run-shell 'tmux show-buffer | xsel -i -b' \; display-message "Copy To
 # END OF copy/paste system
 #####################################################
 
+set-option -g status-bg white
+set-option -g status-fg black
+
+# source a machine-local config file, if there is one
+source-file ~/.tmux_local.conf
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run -b '~/.dotfiles/plugins_tmux/tpm/tpm'
-
-set-option -g status-bg white
-set-option -g status-fg black
