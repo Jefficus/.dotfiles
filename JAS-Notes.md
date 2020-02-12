@@ -18,3 +18,18 @@ git pull .dotfiles
 # copy ~/Builds/autojump to new machine and install
 # Still may not be completely functional
 
+# install these apps
+vim vim-doc tmux zsh zsh-doc vim-scripts curl
+git python python3 python-pip python3-pip
+
+# install the vim-plug plugin
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# install the tmux pluging manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+
+# install one of the standard desktop systems
+mate-desktop-full 
+
+# vi into a file and run :PlugInstall to install all the vim plugins
