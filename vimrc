@@ -141,12 +141,13 @@ Plug 'lervag/vimtex' "a syntax and motions plugin for latex files
 Plug 'azadkuh/vim-cmus' "control cmus music player from inside vim
 Plug 'felixhummel/setcolors.vim' "a tool for previewing vim color schemes
 Plug 'Jefficus/vim-jeffdown' "a tool for syntax highlighting jeffdown files
+Plug 'neomutt/neomutt.vim' "synatx highlighting within neomutt
 
 Plug 'morhetz/gruvbox' "a low-contrast color scheme
 Plug 'kamwitsta/nordisk' "a low-contrast color scheme
 Plug 'kamwitsta/dutch_peasants' "a low-contrast color scheme
 Plug 'junegunn/seoul256.vim' "a low-contrast color scheme
-Plug 'ap/vim-templates' "create template system for init'ing new files
+"Plug 'ap/vim-templates' "create template system for init'ing new files
 Plug 'elzr/vim-json' "better syntax highlighting for json
 
 call plug#end()
