@@ -1,7 +1,7 @@
 alias antibodify='antibody bundle < ~/.dotfiles/plugins_zsh > ~/.zsh_plugins.sh'
 alias bigdirs='du --max-depth=1|sort -nr|less'
 alias bigfiles='du *|sort -nr|less'
-alias black='ssh -Y blackburt.local'
+alias blackburt='ssh -X blackburt.local'
 alias bugs='jink -c +s bug=open -l'
 
 alias discus='ssh -Y -L 9000:discus-desk12.usask.ca:22 jas215@tuxworld.usask.ca'
