@@ -102,6 +102,10 @@ inoremap <F1> <ESC>:set invfullscreen<CR>a
 nnoremap <F1> :set invfullscreen<CR>
 vnoremap <F1> :set invfullscreen<CR>
 
+" I *HATE* the vim recording function. Never use it and I'm constantly
+" invoking it by accident when trying to quit something. So I'm disabling it.
+map q <Nop>
+
 " Formatting
 map <leader>q gqip
 
