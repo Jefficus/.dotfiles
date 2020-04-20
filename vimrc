@@ -39,6 +39,21 @@ set wrap
 set shiftround
 " set formatoptions=tcqrn1
 
+" spell checking config
+set spelllang=en
+"set spellfile=$HOME/.vim/en.utf-8.add
+"au FileType markdown,jeffdown,text,tex set spell
+" Turn on the lexical system for text files, using a
+" local spellfile for custom words
+au FileType markdown,jeffdown,text,tex call lexical#init({'spellfile':['en.utf-8.add']})
+
+" turn on plugin for highlighting over-used words
+au FileType markdown,jeffdown,text,tex DittoOn
+nmap <leader>di <Plug>ToggleDitto
+
+" turn on thesaurus lookup command
+let g:lexical#thesaurus_key = '<leader>t'
+
 " Colorscheme
 colorscheme slate "so far, I actually like the default best
 "Override syntax colors for some things that bug me
@@ -149,6 +164,11 @@ Plug 'kamwitsta/dutch_peasants' "a low-contrast color scheme
 Plug 'junegunn/seoul256.vim' "a low-contrast color scheme
 "Plug 'ap/vim-templates' "create template system for init'ing new files
 Plug 'elzr/vim-json' "better syntax highlighting for json
+
+"Plug 'dbmrq/vim-dialect' "project-specific spelling words
+Plug 'reedes/vim-lexical' "General upgrade to spellcheck and thesaurus
+Plug 'dbmrq/vim-ditto' "highlight over-used words
+Plug 'pseewald/vim-anyfold' "alternative to fold method = indent
 
 call plug#end()
 
