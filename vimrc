@@ -203,6 +203,8 @@ augroup pencil
    let g:pencil#softDetectSample = 20
    let g:pencil#softDetectThreshold = 130
  " }}}
+
+autocmd filetype markdown,mkd,md AnyFoldActivate " anyfold for md files
  
 " " NOTE: if lines are wrapping in mid-word, try :set linebreak
 " "       which should have them wrapping at word boundaries instead
