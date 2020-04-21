@@ -30,7 +30,7 @@ set visualbell
 set encoding=utf-8
 
 " Whitespace
-set textwidth=79
+set textwidth=65
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -153,6 +153,7 @@ Plug 'kamwitsta/dutch_peasants' "a low-contrast color scheme
 Plug 'junegunn/seoul256.vim' "a low-contrast color scheme
 "Plug 'ap/vim-templates' "create template system for init'ing new files
 Plug 'elzr/vim-json' "better syntax highlighting for json
+Plug 'itchyny/lightline.vim' "better status line
 
 call plug#end()
 

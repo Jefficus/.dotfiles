@@ -22,6 +22,7 @@ bind ^A select-pane -t :.+
 bind | split-window -h
 bind - split-window -v
 
+
 #-------------------------------------------------------#
 #Pane colours
 #-------------------------------------------------------#
@@ -50,10 +51,9 @@ unbind Up
 unbind Right
 
 # List of tmux plugins to load
-set -g @plugin 'tmux-plugins/tpm'
-set -g @plugin 'tmux-plugins/tmux-resurrect'
-set -g @plugin 'tmux-plugins/tmux-sensible'
-#set -g @plugin 'tmux-plugins/tmux-yank' # tmux buff autocp to clipbd
+# set -g @plugin 'tmux-plugins/tpm'
+# set -g @plugin 'tmux-plugins/tmux-resurrect'
+# set -g @plugin 'tmux-plugins/tmux-sensible'
 
 
 
@@ -94,6 +94,9 @@ bind-key > run-shell 'tmux show-buffer | xsel -i -b' \; display-message "Copy To
 
 set-option -g status-bg white
 set-option -g status-fg black
+
+# tell tmux to use color mode
+set -g default-terminal "tmux-256color"
 
 # source a machine-local config file, if there is one
 source-file ~/.tmux_local.conf
