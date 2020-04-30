@@ -57,9 +57,21 @@ let g:lexical#thesaurus_key = '<leader>t'
 " Colorscheme
 colorscheme slate "so far, I actually like the default best
 "Override syntax colors for some things that bug me
-highlight Search guibg='NONE' guifg='White' cterm=NONE ctermfg=White ctermbg=NONE
-highlight jeffdownItalic guibg='NONE' guifg='White' cterm=NONE ctermfg=White ctermbg=NONE
-highlight jeffdownBold guibg='NONE' guifg='White' cterm=NONE ctermfg=White ctermbg=NONE
+highlight Search cterm=NONE ctermfg=White ctermbg=NONE
+highlight jeffdownItalic cterm=NONE ctermfg=White ctermbg=NONE
+highlight jeffdownBold cterm=NONE ctermfg=White ctermbg=NONE
+" Alter the default spelling style to use underlines instead of bgcol
+hi clear SpellCap
+hi SpellCap cterm=underline ctermfg=Blue ctermbg=NONE
+hi clear SpellBad
+hi SpellBad cterm=underline ctermfg=Red ctermbg=NONE
+hi clear SpellLocal
+hi SpellLocal cterm=underline ctermfg=Cyan ctermbg=NONE
+hi clear SpellRare
+hi SpellLocal cterm=underline ctermfg=Magenta ctermbg=NONE
+" These currently don't work
+autocmd Filetype markdown hi htmlBold ctermbg=NONE
+autocmd Filetype markdown hi htmlItalic ctermbg=NONE
 
 " Cursor motion
 set scrolloff=1 "keep 1 lines of text visible above/below current line
@@ -174,6 +186,9 @@ Plug 'itchyny/lightline.vim' "better status line
 Plug 'reedes/vim-lexical' "General upgrade to spellcheck and thesaurus
 Plug 'dbmrq/vim-ditto' "highlight over-used words
 Plug 'pseewald/vim-anyfold' "alternative to fold method = indent
+" Plug 'fs111/pydoc.vim' "alternative to fold method = indent
+" Plug 'davidhalte/jedi-vim' "python autocompletion and help
+" Plug 'python-mode/python-mode' "python autocompletion and help
 
 call plug#end()
 
@@ -305,3 +320,4 @@ inoremap <F4> <Esc>yyp<c-v>$r-A
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
