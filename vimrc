@@ -55,12 +55,7 @@
     Plug 'elzr/vim-json' "json
     Plug 'dbmrq/vim-ditto' "highlight over-used words
 
-    "Plug 'reedes/vim-lexical' "Improvements for spellcheck and thesaurus
     Plug 'pseewald/vim-anyfold' "alternative to fold method = indent
-    ""Plug 'dbmrq/vim-dialect' "project-specific spelling words
-    "" Plug 'fs111/pydoc.vim' "alternative to fold method = indent
-    "" Plug 'davidhalte/jedi-vim' "python autocompletion and help
-    "" Plug 'python-mode/python-mode' "python autocompletion and help
 
     call plug#end()
 
@@ -185,10 +180,11 @@
     set wrap
     set shiftround
 
+
 "Spelling and grammar highlighting
     set spelllang=en
     set spellfile=$HOME/.vim/en.utf-8.add
-    "
+     
     "Recompute spell file if wordlist has been updated externally
     for d in glob('~/.vim/*.add', 1, 1)
         if filereadable(d) && (!filereadable(d . '.spl') || getftime(d) > getftime(d . '.spl'))
@@ -199,19 +195,14 @@
    "Enable spell checking for prose text files
    augroup prose_keys
        autocmd!
-       " au FileType markdown,jeffdown,text,tex set spell
+       au FileType markdown,jeffdown,text,tex set spell
        au FileType markdown,jeffdown,text,tex DittoOn
-       au Filetype markdown,jeffdown,text,tex hi htmlBold ctermbg=NONE
-       au Filetype markdown,jeffdown,text,tex hi htmlItalic ctermbg=NONE
    augroup END
 
    nnoremap <buffer> <localleader>s :set spell!<cr>
    nnoremap <buffer> <localleader>d :ToggleDitto<cr>
    "While this is a potentially useful indicator, it has too
    "many false positives, which makes the screen rather busy
-
-   "Turn on thesaurus lookup command
-   let g:lexical#thesaurus_key = '<localleader>t'
 
 
 "UI
@@ -223,6 +214,7 @@
     set showcmd       "Show last command in status area
     set showmatch     "Jump briefly to highlight matching brace
 
+
 "Searching
     set noincsearch  "disable incremental searching (I hate it)
     set hlsearch     "highlight all occurances of search term
@@ -231,6 +223,7 @@
     
     "Clear search term highlights with <spc><spc>
     noremap <leader><space> :let @/=''<CR>
+
 
 "Custom Functions/Cmds
     "underline markdown headlines
@@ -246,6 +239,7 @@
             normal gtalI### 
         endif
     endfunction
+
     "Comment out a jeffdown paragraph
     " NOTE: I'm using normal, not normal!, because I WANT
     " vim to use the special meaning of "gtal". 
