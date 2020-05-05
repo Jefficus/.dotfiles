@@ -53,6 +53,7 @@
     Plug 'Jefficus/vim-jeffdown' "jeffdown files
     Plug 'neomutt/neomutt.vim' "neomutt
     Plug 'elzr/vim-json' "json
+    " Plug 'chrisbra/csv.vim' "csv
     Plug 'dbmrq/vim-ditto' "highlight over-used words
 
     Plug 'pseewald/vim-anyfold' "alternative to fold method = indent
@@ -197,6 +198,12 @@
        autocmd!
        au FileType markdown,jeffdown,text,tex set spell
        au FileType markdown,jeffdown,text,tex DittoOn
+   augroup END
+
+   "Enable some features for CSV files
+   augroup csv_files
+       autocmd!
+       au FileType csv set number set nowrap
    augroup END
 
    nnoremap <buffer> <localleader>s :set spell!<cr>
