@@ -46,6 +46,7 @@
     "Plug 'kamwitsta/nordisk' "a low-contrast color scheme
     "Plug 'kamwitsta/dutch_peasants' "a low-contrast color scheme
     "Plug 'junegunn/seoul256.vim' "a low-contrast color scheme
+    "Plug 'agude/vim-eldar' "high contrast dark theme
     ""Plug 'ap/vim-templates' "create template system for init'ing new files
 
     "FileType highlighting
@@ -165,6 +166,10 @@
     hi SpellLocal cterm=underline ctermfg=Cyan ctermbg=NONE
     hi clear SpellRare
     hi SpellRare cterm=underline ctermfg=Magenta ctermbg=NONE
+    hi clear Function
+    hi Function ctermfg=172 ctermbg=NONE  "orange
+    hi clear Constant
+    hi Constant ctermfg=164 ctermbg=NONE  "magenta
     
     " These currently don't work
     " autocmd Filetype markdown hi htmlBold ctermbg=NONE
@@ -262,3 +267,6 @@
     nnoremap <leader>u3 :call UnderlineHeading(3);<cr>
 
 
+
+"Experiments (try 'em here before moving them into perm location)
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
