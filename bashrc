@@ -9,7 +9,6 @@ fi
 if [ -f ~/.dotfiles/aliases ]; then
 	. ~/.dotfiles/aliases
 fi
-alias tmux='/cvmfs/soft.computecanada.ca/gentoo/2019/usr/bin/tmux'
 
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
