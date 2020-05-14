@@ -58,6 +58,7 @@
     Plug 'dbmrq/vim-ditto' "highlight over-used words
 
     Plug 'pseewald/vim-anyfold' "alternative to fold method = indent
+    " Plug 'agateau/yokadi', {'as': 'vim-yokadi', 'rtp': 'editors/vim'}
 
     call plug#end()
 
@@ -89,7 +90,14 @@
        autocmd!
        autocmd filetype markdown,mkd,md,jd,vim AnyFoldActivate 
    augroup END
- 
+
+   "Disable spell and ditto checks if the file is opened in yokadi
+   augroup yokadi
+       autocmd!
+       autocmd BufRead,BufNewFile /tmp/yokadi-* set nospell
+       autocmd BufRead,BufNewFile /tmp/yokadi-* :NoDitto
+   augroup END
+
    "Keybindings for the cmus controls
    nnoremap <leader>b :CmusNext<cr>
    nnoremap <leader>c :CmusPause<cr>
