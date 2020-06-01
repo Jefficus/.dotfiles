@@ -67,3 +67,9 @@ c.bindings.key_mappings = {'<Ctrl+6>': '<Ctrl+^>', '<Ctrl+Enter>': '<Ctrl+Return
 config.bind('<Ctrl+h>', 'tab-prev')
 config.bind('<Ctrl+l>', 'tab-next')
 config.bind('<Ctrl+x>', 'tab-close')
+
+# Set default search engine
+c.url.searchengines = {
+                       'DEFAULT': 'https://www.google.com/search?hl=en&q={}',
+                       }
+

@@ -1,4 +1,6 @@
 alias antibodify='antibody bundle < ~/.dotfiles/plugins_zsh > ~/.zsh_plugins.sh'
+alias arbutus='ssh -i ~/.ssh/id-arbutus-vm ubuntu@206.12.93.141'
+
 alias bigdirs='du --max-depth=1|sort -nr|less'
 alias bigfiles='du *|sort -nr|less'
 alias blackburt='ssh -X blackburt.local'
@@ -53,6 +55,7 @@ alias SPcheck='vim -R /home/jeffs/Projects/Writing/Active/Archive/StrangePlaces.
 alias SPebook='ebook-viewer ~/Calibre\ Library/Jefferson\ Smith/Strange\ Places\ \(2\)/Strange\ Places\ -\ Jefferson\ Smith.epub'
 alias splat='splaticus'
 
+alias todo='echo "Use jtodo instead."'
 alias update='sudo apt-get update'
 alias urgent='splaticus list urgent'
 

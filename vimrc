@@ -24,6 +24,9 @@
     Plug 'christoomey/vim-system-copy' "add cp,cv cut/paste cmds to sys clipbd
     Plug 'christoomey/vim-tmux-navigator' "mk tmux treat vim splits as panes
     Plug 'itchyny/lightline.vim' "better status line
+    Plug 'aserebryakov/vim-todo-lists' "local todo files
+    Plug 'farfanoide/vim-kivy' "syntax hiltng for kivy files
+
 
     ""New noun blocks for vim editing cmds 
     Plug 'michaeljsmith/vim-indent-object' "indented lines
@@ -41,12 +44,6 @@
     "Plug 'azadkuh/vim-cmus' "control cmus music player from inside vim
     "Plug 'felixhummel/setcolors.vim' "a tool for previewing vim color schemes
     
-    ""Custom colorschemes
-    "Plug 'morhetz/gruvbox' "a low-contrast color scheme
-    "Plug 'kamwitsta/nordisk' "a low-contrast color scheme
-    "Plug 'kamwitsta/dutch_peasants' "a low-contrast color scheme
-    "Plug 'junegunn/seoul256.vim' "a low-contrast color scheme
-    "Plug 'agude/vim-eldar' "high contrast dark theme
     ""Plug 'ap/vim-templates' "create template system for init'ing new files
 
     "FileType highlighting
@@ -88,8 +85,13 @@
    "Enable anyfold for md files, jd files, and vimrc
    augroup anyfolds
        autocmd!
-       autocmd filetype markdown,mkd,md,jd,vim AnyFoldActivate 
+       autocmd filetype todo,python,markdown,mkd,md,jd,vim,kv AnyFoldActivate 
+       autocmd filetype python,todo set foldlevel=1
+       autocmd filetype markdown,mkd,md,jd,vim set foldlevel=2 
    augroup END
+   
+   "set the proper commenting style for Kivy
+   autocmd FileType kv,spec setlocal commentstring=#\ %s
 
    "Disable spell and ditto checks if the file is opened in yokadi
    augroup yokadi
@@ -131,6 +133,11 @@
     "Fix up/down keys when lines are wrapped
     nnoremap j gj
     nnoremap k gk
+
+    "Set H to previous buffer and L to next buffer
+    "which matches next/prev behavior in qutebrowser
+    nnoremap H :bp<cr>
+    nnoremap L :bn<cr>
     
     "Remap help key.
     inoremap <F1> <ESC>:set invfullscreen<CR>a
@@ -221,9 +228,7 @@
 
    nnoremap <buffer> <localleader>s :set spell!<cr>
    nnoremap <buffer> <localleader>d :ToggleDitto<cr>
-   "While this is a potentially useful indicator, it has too
-   "many false positives, which makes the screen rather busy
-
+   nnoremap <buffer> <localleader>f :AnyFoldActivate<cr>
 
 "UI
     set nonumber      "Disable line numbers
