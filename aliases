@@ -20,9 +20,19 @@ alias eog='feh --scale-down'
 alias findrecent='find . -type f -mtime -9 -exec ls -l --time-style=full-iso {} \;| cut -d\  -f 1-5 --complement|sort|less'
 alias frank='ssh -X frankenburt.local'
 
+# git aliases
+alias gb="git branch"
+alias gcAm="git commit -am"
+alias gchk="git checkout"
+alias gcm="git commit -m"
+alias gl="git log"
+alias gs="git status"
+alias gitclean="for bn in $(git branch --merged=master|grep -v master); do echo $bn; done"
+
 alias godaddy='ssh a3613142427293@a36.160.myftpupload.com'
 alias gpx='/usr/bin/gpx -g -m r2 -v '
 alias graham='ssh -X jeffs@graham.computecanada.ca'
+
 
 alias hogs='du -sk *|sort -nr |less'
 
@@ -41,6 +51,7 @@ alias ll='LC_COLLATE=C ls -hl'
 alias la='LC_COLLATE=C ls -ha'
 
 alias midiserver='timidity -iA -A 500 2>&1 /dev/null'
+alias moto='adb -s ZY326HZ4HD install bin/maran*apk'
 
 alias OKcheck='gvim -R /home/jeffs/MIGRATED/Development/Writing/Active/OathKeeper.scriv/Production/IN-chapters.jd'
 

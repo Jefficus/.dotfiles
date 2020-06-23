@@ -26,9 +26,13 @@ bind - split-window -v
 #-------------------------------------------------------#
 #Pane colours
 #-------------------------------------------------------#
+
+# begin by setting the term type that tmux prefers
+set -g default-terminal "screen-256color"
+
 # make the inactive panes appear cloudy
-set -g window-style 'fg=colour247,bg=colour236'
-set -g window-active-style 'fg=colour250,bg=black'
+set -g window-style 'fg=colour240,bg=colour236'
+set -g window-active-style 'fg=colour250,bg=colour0'
 
 # Smart pane switching with awareness of Vim splits.
 # See: https://github.com/christoomey/vim-tmux-navigator

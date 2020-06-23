@@ -73,3 +73,10 @@ c.url.searchengines = {
                        'DEFAULT': 'https://www.google.com/search?hl=en&q={}',
                        }
 
+# Disable incremental search
+# it seems nice at first, but it encourages me to not complete
+# the search request, and then later commands get appended to the
+# current search string rather than treated as new commands. So
+# by disabling the incrementality, I'll be forced to hit enter to
+# launch the search, and this will stop happening.
+c.search.incremental = False

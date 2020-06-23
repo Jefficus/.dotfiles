@@ -86,8 +86,8 @@
    augroup anyfolds
        autocmd!
        autocmd filetype todo,python,markdown,mkd,md,jd,vim,kv AnyFoldActivate 
-       autocmd filetype python,todo set foldlevel=1
-       autocmd filetype markdown,mkd,md,jd,vim set foldlevel=2 
+       autocmd filetype python,todo set foldlevel=99
+       autocmd filetype markdown,mkd,md,jd,vim,kv set foldlevel=99 
    augroup END
    
    "set the proper commenting style for Kivy
