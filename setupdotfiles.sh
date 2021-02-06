@@ -4,7 +4,7 @@ DOT=~/.dotfiles
 
 src=$DOT/vimrc
 target=~/.vimrc
-if ! [ -x "$(vim --version)" ]; then
+if ! [ -x "$(which vim)" ]; then
     echo "Vim not installed locally."
     echo "Run: sudo apt-get install vim"
 fi
@@ -25,7 +25,7 @@ ln -s $src $target
 
 src=$DOT/tmuxrc
 target=~/.tmux.conf
-if ! [ -x "$(tmux -V)" ]; then
+if ! [ -x "$(which tmux)" ]; then
     echo "Tmux not installed locally."
     echo "Run: sudo apt-get install tmux"
 fi
@@ -54,3 +54,7 @@ if [[ -e "$target" ]]; then
 fi
 echo "Linking new $target"
 ln -s $src $target
+
+
+# TODO
+# set up .bash_aliases by linking from .dotfiles/aliases
