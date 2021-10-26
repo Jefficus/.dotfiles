@@ -26,6 +26,7 @@
     Plug 'itchyny/lightline.vim' "better status line
     Plug 'aserebryakov/vim-todo-lists' "local todo files
     Plug 'farfanoide/vim-kivy' "syntax hiltng for kivy files
+    Plug 'stevearc/vim-arduino' "commands and keys for editing Arduino .ino
 
 
     ""New noun blocks for vim editing cmds 
@@ -56,6 +57,7 @@
 
     Plug 'pseewald/vim-anyfold' "alternative to fold method = indent
     " Plug 'agateau/yokadi', {'as': 'vim-yokadi', 'rtp': 'editors/vim'}
+    Plug 'kblin/vim-fountain' "for editing fountain-format scripts
 
     call plug#end()
 
