@@ -4,11 +4,12 @@ alias arbutus='ssh -i ~/.ssh/id-arbutus-vm ubuntu@206.12.93.141'
 alias bigdirs='du --max-depth=1|sort -nr|less'
 alias bigfiles='du *|sort -nr|less'
 alias blackburt='ssh -X blackburt.local'
+alias buildozer='jversion -d version.txt && buildozer'
 alias bugs='jink -c +s bug=open -l'
 
 alias discus='ssh -Y -L 9000:discus-desk12.usask.ca:22 jas215@tuxworld.usask.ca'
 alias campus='ssh -X jas215@tux6.usask.ca'
-alias cedar='ssh jeffs@cedar.computecanada.ca'
+alias cedar='ssh -X jeffs@cedar.computecanada.ca'
 alias ch='ssh -X -p 18765 creat561@creativityhacker.ca'
 alias cmus='echo "Use vimpc instead."'
 
