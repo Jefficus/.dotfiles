@@ -1,0 +1,133 @@
+echo "Processing .bash_jump"
+# This j function (which stands for 'jump') lets you
+# create hyper-links or short-cut references to any 
+# directory and then jump to it later without having to type 
+# long, arduous directory paths over and over again.
+#
+# It has 2 primary functions:
+# j -m tagname - creates a hypermark for the current directory, called tagname
+# j tagname - jump to the hypermark directory called tagname
+#
+# Install the tool by naming this file something like .bash_jump in your home
+# directory, and then adding the following line to your .bashrc:
+# 
+# . ~/.bash_jump
+#
+# This simple trick saves me several hundred keystrokes per day. If you
+# want to know just how much it's saving you, try: j -s
+#
+# Jefficus
+#
+# Release Notes
+# V 0.2 - added stats feature
+#       - added version reporting feature
+#       - improved internal documentation
+#
+# V 0.1 - initial release
+#
+
+JVERSION='O.2 (Nov 27, 2010)'
+JMARKS=~/.jmarks
+JLOG=~/.jmarklog
+JDATE=`date +%F`
+
+juseage()
+{
+	echo "Useage: j [tagname | -m tagname | -l]"
+	echo "   j tagname    - Jump to the directory associated with 'tagname'"
+	echo "   j -m tagname - Associate 'tagname' with the current directory"
+	echo "   j -l         - List all known tagnames and their directories"
+	echo "   j -s         - Report some jmark usage statistics"
+	echo "   j -h         - List general help description for jmark system"
+	echo "   j -v         - Report current version number"
+}
+
+j()
+{
+	case "$1" in
+	""		) juseage;;
+	"-h" | "-H" | "-help" | "-?"	)
+			echo "The JMarks utility simplifies the process of leaping around from directory to directory via the command line. For most users, there are only a handful of directories that are commonly used, but they might have very different locations in the file hierarchy. "
+			echo ""
+			echo "Often, users write alias statements to jump them to their important directories. But as projects come and go, the locations of the key directories often change too. So rather than constantly having to update the shell files to create aliases, we decided to create JMark."
+			echo ""
+			echo "JMarks is simply a short-hand system for referring to directory locations with short, user-defined tags called 'hypermarks'. By creating a hypermark in a given directory, the user can return to that directory at any time by simply typing 'j markname'. "
+			echo ""
+			echo "Creating marks is easy as well. Just type 'j -m markname' and the markname will be associated with your current directory."
+			echo ""
+			echo "And if you forget what hypermark you assigned to a given directory 'j -l' will list all the known hypermarks in the system."
+			echo ""
+			echo "If you want to build the hypermark database manually, you'll find it in $JMARKS and the file format should be self explanatory."
+			;;
+	"-m" | "-M"	) if test -z "$2"
+			then
+				juseage
+			else
+				exec 6>&1	#link file descriptor 6 with stdout
+				exec >>$JMARKS
+				echo "$2	$PWD"
+				exec 1>&6 6>&-	#restore stdout
+				echo "Directory($PWD) marked as $2"
+			fi;;
+
+	"-s" | "-S"	) echo "Statistics"
+         if test -f $JLOG 
+         then
+            jcta=`grep $JDATE $JLOG | cut -d\  -f 2 | wc -c`
+            jctc=`grep $JDATE $JLOG | cut -d\  -f 2 | wc -l`
+            jctb=`cut -d\  -f 2 $JLOG|wc -c`
+            jctd=`cut -d\  -f 2 $JLOG|wc -l`
+         fi
+         echo "Today you've used JMarks $jctc times, saving $jcta keystrokes"
+         echo "Overall, you've used JMarks $jctd times, saving $jctb keystrokes"
+         ;;
+
+	"-v" | "-V"	) echo "JMarks, vers. $JVERSION"
+         echo "by Jefficus <jeff@smithicus.com>"
+         ;;
+
+	"-l" | "-L"	) echo "Listing all hypermarks"
+				exec 6<&0  #stuff a reference to the stdin into file id 6
+				exec < $JMARKS
+				read line
+				while test "$line" != ""
+				do
+					echo "  $line"
+					read line
+				done
+				exec 0<&6 6<&-  #now restore the stdin from file id 6
+				;;
+	*		) if test -z "$1"
+			then
+				juseage
+			else
+				exec 6<&0  #stuff a reference to the stdin into file id 6
+				exec < $JMARKS
+				read line
+				found=0
+				mark=`echo $line | awk '{print $1}'`
+				dir=`echo $line | awk '{print $2}'`
+				while test "$line" != ""
+				do
+               # do comparison in case-insensitive manner
+					if test ${mark,,} = ${1,,}
+					then
+						echo "  Jmarks recognizes hypermark '$mark'."
+						echo "  Jumping to dir: $dir"
+						cd $dir
+                  echo $JDATE $dir >> $JLOG
+						found=1
+					fi
+					read line
+					mark=`echo $line | awk '{print $1}'`
+					dir=`echo $line | awk '{print $2}'`
+				done
+				exec 0<&6 6<&-  #now restore the stdin from file id 6
+				if test $found = 0
+				then
+					echo "  Jmarks unable to recognize requested hypermark ($1)."
+					echo "  Use 'j -l' to review known marks."
+				fi
+			fi;;
+	esac
+}
