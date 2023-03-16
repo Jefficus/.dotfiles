@@ -1,15 +1,7 @@
-alias antibodify='antibody bundle < ~/.dotfiles/plugins_zsh > ~/.zsh_plugins.sh'
-alias arbutus='ssh -i ~/.ssh/id-arbutus-vm ubuntu@206.12.93.141'
-
 alias bigdirs='du --max-depth=1|sort -nr|less'
 alias bigfiles='du *|sort -nr|less'
-alias blackburt='ssh -X blackburt.local'
 alias buildozer='jversion -d version.txt && buildozer'
-alias bugs='jink -c +s bug=open -l'
 
-alias discus='ssh -Y -L 9000:discus-desk12.usask.ca:22 jas215@tuxworld.usask.ca'
-alias campus='ssh -X jas215@tux6.usask.ca'
-alias cedar='ssh -X jeffs@cedar.computecanada.ca'
 alias ch='ssh -X -p 18765 creat561@creativityhacker.ca'
 alias cmus='echo "Use vimpc instead."'
 
@@ -19,7 +11,6 @@ alias ebo='ebook-viewer'
 alias eog='feh --scale-down'
 
 alias findrecent='find . -type f -mtime -9 -exec ls -l --time-style=full-iso {} \;| cut -d\  -f 1-5 --complement|sort|less'
-alias frank='ssh -X frankenburt.local'
 
 # git aliases
 alias gb="git branch"
@@ -28,12 +19,8 @@ alias gchk="git checkout"
 alias gcm="git commit -m"
 alias gl="git log"
 alias gs="git status"
-alias gitclean="for bn in $(git branch --merged=master|grep -v master); do echo $bn; done"
 
-alias godaddy='ssh a3613142427293@a36.160.myftpupload.com'
 alias gpx='/usr/bin/gpx -g -m r2 -v '
-alias graham='ssh -X jeffs@graham.computecanada.ca'
-
 
 alias hogs='du -sk *|sort -nr |less'
 
@@ -52,27 +39,10 @@ alias ll='LC_COLLATE=C ls -hl'
 alias la='LC_COLLATE=C ls -ha'
 
 alias midiserver='timidity -iA -A 500 2>&1 /dev/null'
-alias moto='adb -s ZY326HZ4HD install bin/maran*apk'
-
-alias OKcheck='gvim -R /home/jeffs/MIGRATED/Development/Writing/Active/OathKeeper.scriv/Production/IN-chapters.jd'
-
-alias qute='.venv/bin/python3 -m qutebrowser'
 
 #alias rm='~/bin/rm'
 alias rm="mv -t ~/.local/share/Trash/files --backup=t --verbose"
 
-alias slic3r='/opt/slic3r/bin/slic3r'
-alias slicer='/opt/slic3r/bin/slic3r'
-alias SPcheck='vim -R /home/jeffs/Projects/Writing/Active/Archive/StrangePlaces.scriv/Production/IN-chapters.jd'
-alias SPebook='ebook-viewer ~/Calibre\ Library/Jefferson\ Smith/Strange\ Places\ \(2\)/Strange\ Places\ -\ Jefferson\ Smith.epub'
-alias splat='splaticus'
-
 alias todo='echo "Use jtodo instead."'
 alias update='sudo apt-get update'
-alias urgent='splaticus list urgent'
 
-alias vbj='cd ~/VBJ; vi -O index.md `date -Idate`.md'
-
-alias yak='ssh -X -t jas215@tuxworld.usask.ca ssh -X yakitori'
-alias som='ssh -X -t jas215@tuxworld.usask.ca ssh -X somtam'
-alias somtam='ssh -X -t jas215@tuxworld.usask.ca ssh -X somtam'
